@@ -7,171 +7,171 @@
  */
 
 /*
- * EFTER INLÄMNING:
+ * EFTER INLÃ„MNING:
  * 
- * att göra:
+ * att gÃ¶ra:
  *  - Game starting in 3, 2, 1
  *  - Avbryt = avbryt vid inmatning av spel
  *  - Blink vid fel del
- *  - Rök innan uppskjut
+ *  - RÃ¶k innan uppskjut
  *  - Ljud
- *  - GUI för att byta färger + ikoner (actors + locations) (iställningar
- *    bör sparas)
+ *  - GUI fÃ¶r att byta fÃ¤rger + ikoner (actors + locations) (istÃ¤llningar
+ *    bÃ¶r sparas)
  * 
  * 
  * Jonatan:
  * 
- * - Uppritningen av hela raketen görs nu med nullayout, d.v.s stor förändring.
+ * - Uppritningen av hela raketen gÃ¶rs nu med nullayout, d.v.s stor fÃ¶rÃ¤ndring.
  *   Rakterna vibrerar i x-led med en hypad sinusfunktion och accelererar i
- *   y-led med en fager exponentialfunktion. GameWorkshop heter nu istället
+ *   y-led med en fager exponentialfunktion. GameWorkshop heter nu istÃ¤llet
  *   RocketPanel.
  * 
- * - Spelarna kan nu återigen gå diagonalt.Blir dock inte helt snyggt eftersom
+ * - Spelarna kan n Ã¥terigen gÃ¥ diagonalt.Blir dock inte helt snyggt eftersom
  *   inga diagonala bilder finns. Det blir inte heller helt bra eftersom
- *   diagonalt verkligen betyder diagonalt, inte t.ex. vänster om det finns
- *   en vägg uppåt och man håller ner vänster och uppåt (getNextLocation ser
- *   ju att det är en vägg snett uppåt vänster)
+ *   diagonalt verkligen betyder diagonalt, inte t.ex. vÃ¤nster om det finns
+ *   en vÃ¤gg upÃ¥t och man hÃ¥ller ner vÃ¤nster och uppÃ¥t (getNextLocation ser
+ *   ju att det Ã¤r en vÃ¥gg snett uppÃ¥t vÃ¤nster)
  * 
- * - Upplägget för ikoner till GameLocation har ändrats. Nu har alla subklasser
- *   till GameLocation en lokal variabel type som berättar vilken typ en instans
- *   är. Sedan har Wall resp. Floor statiska variabler för de olika typerna av
+ * - UpplÃ¤gget fÃ¶r ikoner till GameLocation har Ã¤ndrats. Nu har alla subklasser
+ *   till GameLocation en lokal variabel type som berÃ¤ttar vilken typ en instans
+ *   Ã¤r. Sedan har Wall resp. Floor statiska variabler fÃ¶r de olika typerna av
  *   ikoner. Vid Draw(g) anropas getImage() som kollar vilken typ instansen har
- *   och returnerar sedan rätt bild.
+ *   och returnerar sedan rÃ¶tt bild.
  * 
- * FÖRE INLÄMNING:
+ * FÃ–RE INLÃ„MNING:
  * 
  * 
- *    Jonatan har fixat följande:
+ *    Jonatan har fixat fÃ¶ljande:
  * - Fixade till SuperSuckerns suck. Nu ska allt vara perfa!
  * 
- * - Fixade så att save- och loadHighScore läser och skriver hela listan som
+ * - Fixade sÃ¥ att save- och loadHighScore lÃ¤ser och skriver hela listan som
  *   ett objekt.
  * 
- * - Fixade så att highscorelistan sorteras efter att e1 har lagts till.
+ * - Fixade sÃ¥ att highscorelistan sorteras efter att e1 har lagts till.
  * 
- * - Bytte namn på GameAreaLabyrinth till GameArea och finnkampen 2067 till
+ * - Bytte namn pÃ¥ GameAreaLabyrinth till GameArea och finnkampen 2067 till
  *   SpaceRace
  * 
- * - Move för SuperSucker kanske behöver lite inside-kommentarer
+ * - Move fÃ¶r SuperSucker kanske behÃ¶ver lite inside-kommentarer
  * 
- * - Allt annat färdigkodat (tror jag)
+ * - Allt annat fÃ¤rdigkodat (tror jag)
  * 
- * - Tyvärr brakar spelet när SuperSuckern hittar dammet på marken...
+ * - TyvÃ¤rr brakar spelet nÃ¤r SuperSuckern hittar dammet pÃ¥ marken...
  * 
- * 1) Tom har fixat följande:
- * - Lade in ett Instructions window (glöm inte att uppdatera klassdiagrammet!)
- *   Tror jag kom ihåg att lägga in alla grejer rätt (mnemonics, ctrl, uppdatera
- *   hjälptexter, titelrad i fönstret), men dubbelkolla gärna
+ * 1) Tom har fixat fÃ¶ljande:
+ * - Lade in ett Instructions window (glÃ¶m inte att uppdatera klassdiagrammet!)
+ *   Tror jag kom ihÃ¥g att lÃ¤gga in alla grejer rÃ¤tt (mnemonics, ctrl, uppdatera
+ *   hjÃ¤lptexter, titelrad i fÃ¶nstret), men dubbelkolla gÃ¤rna
  * 
- * - Fixade en BUTTON_COLOR i GameWindow, som används till knapparna. De är nu
- *   något ljusare än bakgrunden.
+ * - Fixade en BUTTON_COLOR i GameWindow, som anvÃ¤nds till knapparna. De Ã¤r nu
+ *   nÃ¥got ljusare Ã¤n bakgrunden.
  * 
- * - Döpte om och städade bland bilderna i img-katalogen. Se separat mejl!
+ * - DÃ¶pte om och stÃ¤dade bland bilderna i img-katalogen. Se separat mejl!
  * 
- * - Kommenterade till och med bokstaven G. Börja med HighScoreEntry du!
+ * - Kommenterade till och med bokstaven G. BÃ¶rja med HighScoreEntry du!
  * 
- * - Lade till så att HighScoreEntry implementerar Comparable och därmed kan
+ * - Lade till sÃ¥ att HighScoreEntry implementerar Comparable och dÃ¤rmed kan
  *   sorteras automatiskt med "Collections.sort(highscorelistan)"
- *   (just den syntaxen). (Uppdatera klassdiagrammet med även denna nya
+ *   (just den syntaxen). (Uppdatera klassdiagrammet med Ã¤ven denna nya
  *   implements-grej.)
  * 
  * - Skrev om addHighScores(e1, e2) i GameWindow till en i mitt tycke snyggare
- *   variant som bara behöver gå igenom listan en gång. Tidigare metod finns
- *   kvar precis ovanför, men är bortkommenterad.
+ *   variant som bara behÃ¶ver gÃ¥ igenom listan en gÃ¥ng. Tidigare metod finns
+ *   kvar precis ovanfÃ¶r, men Ã¤r bortkommenterad.
  * 
- * - Ändrade get&set-raden till
+ * - Ã„ndrade get&set-raden till
  * 
  *    // ------------------- Get&Sets of relevant variables -------------------
  *    
- *    (Två blankrader ovanför, en under)
+ *    (TvÃ¥ blankrader ovanfÃ¶r, en under)
  * 
  *    Jag har lagt in den i alla relevanta klasser (hoppas jag).
  * 
  * 
- * 2) Att-göra-1: Fixa enhetlighet när det gäller följande:
+ * 2) Att-gÃ¶ra-1: Fixa enhetlighet nÃ¤r det gÃ¤ller fÃ¶ljande:
  * 
- * - Blankrad (som ovan) eller inte (som i Dust.java) mellan sista raden i vår
+ * - Blankrad (som ovan) eller inte (som i Dust.java) mellan sista raden i vÃ¥r
  *   textbeskrivning och sluttaggen (asterisk-slash) i javadoc-kommentaren
- *   för klasser - JA, blankrad i kommentar till klasser!
+ *   fÃ¶r klasser - JA, blankrad i kommentar till klasser!
  * 
  * - Skall vi ha blankrad mellan beskrivning och @param- och @return-rader?
- *   Nu är det så på vissa ställen, men inte på andra. Jag tycker att det är
- *   snyggt om man har många params och returns, men det känns onödigt om
- *   det bara är en sådan efter själva beskrivningen. Är det viktigt med samma
- *   princip överallt? Kan den principen vara "om endast ett argument -> ingen
+ *   Nu Ã¤r det sÃ¥ pÃ¥ vissa stÃ¤llen, men inte pÃ¥ andra. Jag tycker att det Ã¤r
+ *   snyggt om man har mÃ¥nga params och returns, men det kÃ¤nns onÃ¶digt om
+ *   det bara Ã¤r en sÃ¥dan efter sjÃ¤lva beskrivningen. Ã„r det viktigt med samma
+ *   princip Ã¶verallt? Kan den principen vara "om endast ett argument -> ingen
  *   blankrad"? - JA!
  * 
- * - Skall vi ha javadoc-kommentarer på bara en rad? De allra flesta metoder
- *   tar antingen ett argument eller returnerar något. Enradskommentarerna
- *   riskerar att försvinna lite och se ut som vanliga slash-slash-kommentarer.
+ * - Skall vi ha javadoc-kommentarer pÃ¥ bara en rad? De allra flesta metoder
+ *   tar antingen ett argument eller returnerar nÃ¥got. Enradskommentarerna
+ *   riskerar att fÃ¶rsvinna lite och se ut som vanliga slash-slash-kommentarer.
  *   - Inga enradskommentarer!
  * 
- * - Ordning på get och set, get först - sen set. - JA!
+ * - Ordning pÃ¥ get och set, get fÃ¶rst - sen set. - JA!
  * 
  * 
- * 3) Att-göra-2: Fixa till följande grejer:
+ * 3) Att-gÃ¶ra-2: Fixa till fÃ¶ljande grejer:
  * 
  * - Kommentera instansvariabler med icke-uppenbara namn eller syften?
  * 
- * - Varför är metoden createLocationMatrix i GameWorld private? Skadar inte,
- *   men inga andra metoder är väl privata? Byt till public? - FIXAT!
+ * - VarfÃ¶r Ã¤r metoden createLocationMatrix i GameWorld private? Skadar inte,
+ *   men inga andra metoder Ã¤r vÃ¤l privata? Byt till public? - FIXAT!
  * 
- * - Kan det faktum att HighScoreEntry nu implementerar Comparable användas
- *   även på andra ställen för att snygga till koden. Jag hängde inte riktigt
- *   med i svängarna på varför det skulle vara rank med i konstruktorerna
- *   (till entrysarna) och sånt. Förmodligen är detta bara något gammalt arv,
- *   men du har bäst koll! - FIXAT!
+ * - Kan det faktum att HighScoreEntry nu implementerar Comparable anvÃ¤ndas
+ *   Ã¤ven pÃ¥ andra stÃ¤llen fÃ¶r att snygga till koden. Jag hÃ¤ngde inte riktigt
+ *   med i svÃ¤ngarna pÃ¥ varfÃ¶r det skulle vara rank med i konstruktorerna
+ *   (till entrysarna) och sÃ¥nt. FÃ¶rmodligen Ã¤r detta bara nÃ¥got gammalt arv,
+ *   men du har bÃ¤st koll! - FIXAT!
  * 
  * 
  *  
  * 
  * 
  * 
- * Att göra:
- * - Fixa till bilderna så att man kan se skillnad på delarna
- *   (Vingar för små och otydliga, motor för stor, nozzlekonturen
- *    skall fyllas i så hela främre konen syns - inget M)
+ * Att gÃ¶ra:
+ * - Fixa till bilderna sÃ¥ att man kan se skillnad pÃ¥ delarna
+ *   (Vingar fÃ¶r smÃ¥ och otydliga, motor fÃ¶r stor, nozzlekonturen
+ *    skall fyllas i sÃ¥ hela frÃ¤mre konen syns - inget M)
  * - Fixa gubbarna (bilder)
- * - Fixa så att man inte kan öppna fler kopior av fönstren (high score m.fl.)
+ * - Fixa sÃ¥ att man inte kan Ã¶ppna fler kopior av fÃ¶nstren (high score m.fl.)
  * - Fixa ljudeffekter (dammsugaren: schlurrp!)
- * - Fixa möjlighet att stänga av ljudet
- * - Cleanare high-scorelista (släng bara in båda entries och sortera sedan)?
+ * - Fixa mÃ¶jlighet att stÃ¤nga av ljudet
+ * - Cleanare high-scorelista (slÃ¤ng bara in bÃ¥da entries och sortera sedan)?
  * 
  * 
  * 
  * 
  * *********** TOMS PILL TIS 11/1 *************
- * - Nu kan man gå igenom spöket när det är genomskinligt. (Opacity < 0.3f,
- *   vilket innebär problem eftersom spökenas opacitetsvariationer slumpas fram.
- *   En del spöken kanske man typ aldrig kan gå igenom, andra kanske man kan
- *   gå igenom typ hela tiden... Tror också att vi borde fixa en bättre
- *   rutin för kollisionshantering. Tror min slöar ner spelet FETT!
+ * - Nu kan man gÃ¥ igenom spÃ¥ket nÃ¤r det Ã¤r genomskinligt. (Opacity < 0.3f,
+ *   vilket innebÃ¤r problem eftersom spÃ¶kenas opacitetsvariationer slumpas fram.
+ *   En del spÃ¶ken kanske man typ aldrig kan gÃ¥ igenom, andra kanske man kan
+ *   gÃ¥ igenom typ hela tiden... Tror ocksÃ¥ att vi borde fixa en bÃ¤ttre
+ *   rutin fÃ¶r kollisionshantering. Tror min slÃ¶ar ner spelet FETT!
  * 
- * - Lade till en decreaseScore i Player på samma sätt som increaseScore.
- *   Anropas med argumentet 100 om man går igenom ett spöke. Vissa kollisioner
- *   detekteras av någon anledning inte (eller så minskas bara inte poängen).
+ * - Lade till en decreaseScore i Player pÃ¥ samma sÃ¤tt som increaseScore.
+ *   Anropas med argumentet 100 om man gÃ¥r igenom ett spÃ¶ke. Vissa kollisioner
+ *   detekteras av nÃ¥gon anledning inte (eller sÃ¥ minskas bara inte poÃ¤ngen).
  * 
- * - Fixade så att dammsugaren snor den del man bär på. För varje steg som
- *   sugaren flyttar sig är det 10 % chans att den släpper objektet (om
- *   det inte redan ligger något i den rutan).
+ * - Fixade sÃ¥ att dammsugaren snor den del man bÃ¤r pÃ¥. FÃ¶r varje steg som
+ *   sugaren flyttar sig Ã¤r det 10 % chans att den slÃ¤pper objektet (om
+ *   det inte redan ligger nÃ¥got i den rutan).
  *
  * - Lade till relaseCarriedObject() och setCarriedObject(Gameobject obj)
  *   i SuperSucker.
  * 
- * - Lade till loseObjectToSucker() i Player. Anropas om man bär på något som
+ * - Lade till loseObjectToSucker() i Player. Anropas om man bÃ¤r pÃ¥ nÃ¥got som
  *   dammsugaren snor.
  * 
- * - Lade till så att dammsugaren även suger upp delar som den åker över.
+ * - Lade till sÃ¥ att dammsugaren Ã¤ven suger upp delar som den Ã¥ker Ã¶ver.
  * 
- * - Se punkterna inom OBS! nedan! Nu måste jag dra till Edvard!
+ * - Se punkterna inom OBS! nedan! Nu mÃ¥ste jag dra till Edvard!
  * 
  * OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! 
  * 
- * MÅSTE FIXA SPECIALFALLET MED DAMM... Skall man kunna plocka upp det?
- * Skall dammsugaren då "suga upp" det om han krockar med en?
+ * MÃ…STE FIXA SPECIALFALLET MED DAMM... Skall man kunna plocka upp det?
+ * Skall dammsugaren dÃ¥ "suga upp" det om han krockar med en?
  * 
- * Måste också fixa vad som händer om sugaren har med sig en del som den
- * sugit upp från marken och går in i en. Då skall han inte sno ens egen del
+ * MÃ¥ste ockÃ¥ fixa vad som hÃ¤nder om sugaren har med sig en del som den
+ * sugit upp frÃ¥n marken och gÃ¥r in i en. DÃ¥ skall han inte sno ens egen del
  * va? Eller?
  * 
  * OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS! OBS!
@@ -179,97 +179,97 @@
  * - Fusk (steal)
  * - Kaffemaskin, waiter
  * - Ljud
- * - Fixa större värld - FIXAT
- * - Nätverk
+ * - Fixa stÃ¶rre vÃ¤rld - FIXAT
+ * - NÃ¤tverk
  * - Fixa slumpen till floorImageList
- * - Flytande gång
+ * - Flytande gÃ¥ng
  * - GameAreaWorkshop
- * - Fixa en ruta i workshop/panel där det man bär på visas - FIXAT, men inte
- * 			helt snyggt. Jag tror att vi borde fundera lite på layouten. Det
- *   		blir inget bra med knapparna där de är, vi borde nog sätta dem
- *  		i north i stället, det börjar bli för lite plats för player1s
- * 			rymdskepp att åka på.
+ * - Fixa en ruta i workshop/panel dÃ¤r det man bÃ¤r pÃ¥ visas - FIXAT, men inte
+ * 			helt snyggt. Jag tror att vi borde fundera lite pÃ¥ layouten. Det
+ *   		blir inget bra med knapparna dÃ¤r de Ã¤r, vi borde nog sÃ¤tta dem
+ *  		i north i stÃ¤llet, det bÃ¶rjar bli fÃ¶r lite plats fÃ¶r player1s
+ * 			rymdskepp att Ã¥ka pÃ¥.
  * 
  *
- * - välja ok/avbryt med tangentbordet. - funkare ej...men space funkar...
- *   jag börjar fatta varför, enter funkar på vår egna meny, men inte på
- *   typ JOptionDialogue eftersom vi inte har möjlighet att / vet hur man
- *   ändrar detta i dessa, och det verkar inte finnas någon bra konstruktor
- *   som tar argument för att ändra detta, det verkar helt enkelt vara en
- *   miss i Java 1.4.2 (förhopnningsvis bättre i 1.5). Liknande problem 
- *   har vi i vår egna dialogruta showGameAlternatives. Där kan man inte
- *   ens använda ShowMnemonics (som är default i showOptionDialogue) för
- *   att använda Alt-h för highScore etc.
+ * - vÃ¤lja ok/avbryt med tangentbordet. - funkare ej...men space funkar...
+ *   jag bÃ¶rjar fatta varfÃ¶r, enter funkar pÃ¥ vÃ¥r egna meny, men inte pÃ¥
+ *   typ JOptionDialogue eftersom vi inte har mÃ¶jlighet att / vet hur man
+ *   Ã¤ndrar detta i dessa, och det verkar inte finnas nÃ¥gon bra konstruktor
+ *   som tar argument fÃ¶r att Ã¤ndra detta, det verkar helt enkelt vara en
+ *   miss i Java 1.4.2 (fÃ¶rhopnningsvis bÃ¤ttre i 1.5). Liknande problem 
+ *   har vi i vÃ¥r egna dialogruta showGameAlternatives. DÃ¤r kan man inte
+ *   ens anvÃ¤nda ShowMnemonics (som Ã¤r default i showOptionDialogue) fÃ¶r
+ *   att anvÃ¤nda Alt-h fÃ¶r highScore etc.
  *
  *
- * - Quit-problemet vid nytt spel vid gameOver - FIXAT, av någon mystisk
+ * - Quit-problemet vid nytt spel vid gameOver - FIXAT, av nÃ¥gon mystisk
  *   anledning exekverades else-satsen i showGameAlternative trots att alt
- *   fortfarande = 0. Hursom blir det bra när man istället skriver else if
+ *   fortfarande = 0. Hursom blir det bra nÃ¤r man istÃ¤llet skriver else if
  *   (alt == 2).
  * - Kollisionshantering
- * - Förbättra highscorelistan - FIXAT!
- * - Applet - Försökt, problem med rättigheter för att öppna bilder
- * - Symmetrisk värld - FIXAT! Man ska nu bara rita upp halva världen.
+ * - FÃ¶rbÃ¤ttra highscorelistan - FIXAT!
+ * - Applet - FÃ¶rsÃ¤kt, problem med rÃ¤ttigheter fÃ¶r att Ã¶ppna bilder
+ * - Symmetrisk vÃ¤rld - FIXAT! Man ska nu bara rita upp halva vÃ¤rlden.
  * 
- * - Utplaceringen av AboutWindow och HighScoreWindow görs nu någorlunda
- *   likadant. Dock borde vi se till att de görs exakt likadant!
+ * - Utplaceringen av AboutWindow och HighScoreWindow gÃ¶rs nu nÃ¥gorlunda
+ *   likadant. Dock borde vi se till att de gÃ¶rs exakt likadant!
  * 
- * - RocketModule måste innehålla en panelImage och en labyrinthImage. Jag
- *   la dock till dessa i GameObject (labyrinthImage hette förut bara image).
- *   Detta gjorde också att koden i GameAreaWorkshop blev mycket snyggare
- *   när vi kollar vilken bild som ska läggas till i workshopen.
+ * - RocketModule mÃ¥ste innehÃ¥lla en panelImage och en labyrinthImage. Jag
+ *   la dock till dessa i GameObject (labyrinthImage hette fÃ¶rut bara image).
+ *   Detta gjorde ocksÃ¥ att koden i GameAreaWorkshop blev mycket snyggare
+ *   nÃ¤r vi kollar vilken bild som ska lÃ¤ggas till i workshopen.
  * 
- * - Hmm...något mysko att kollisionshanteringen ligger i GameActor, känns
- *   som att den borde ha att göra med legalMovefunktionen som väl ligger i
+ * - Hmm...nÃ¥got mysko att kollisionshanteringen ligger i GameActor, kÃ¤nns
+ *   som att den borde ha att gÃ¶ra med legalMovefunktionen som vÃ¤l ligger i
  *   GameWorld...
  *
- *   ************ JONATAN - TISDAG KVÄLL ********''
- * - Fixade spelarnamn. Man får skriva in dem i början av varje spel
- *   Om man har restartad så är default namnen från förra spelet. Detta löstes
- *   väl inte helt snyggt, men metoden setPlayerNames finns i GameWindow och
- *   kan anropas med inga argument (inga defaultnamn i rutan) eller med två
- *   strängar (defaulttexterna).
+ *   ************ JONATAN - TISDAG KVï¿½LL ********''
+ * - Fixade spelarnamn. Man fÃ¶r skriva in dem i bÃ¶rjan av varje spel
+ *   Om man har restartad sÃ¥ Ã¤r default namnen frÃ¥n fÃ¶rra spelet. Detta lÃ¤stes
+ *   vÃ¤l inte helt snyggt, men metoden setPlayerNames finns i GameWindow och
+ *   kan anropas med inga argument (inga defaultnamn i rutan) eller med tvÃ¥
+ *   strÃ¤ngar (defaulttexterna).
  * 
- * - Fixade så att den som har mest poäng vinner. Detta står i Congrats-rutan.
+ * - Fixade sÃ¥ att den som har mest poÃ¤ng vinner. Detta stÃ¥r i Congrats-rutan.
  * 
  * - Provspelade med min utbytesstudentgranne, han tycket spelet var grymt!
  * 
  * 
  * 
- *   *************TOMS STRUL TISDAG EFTERMIDDAG/KVÄLL********
- * - Fixat olika ikoner för spelare 1 och 2. Tyvärr får vi inte skicka
- *   en int till konstruktorn, och sedan välja bilder att skicka
- *   till superkonstruktorn efter den. Konstruktoranropet måste ju
- *   komma först! Tredje gången vi går i denna fällla.... Ett alternativ
- *   är att göra en mellannivå, typ public GamePlayer createPlayer(int num)
- *   som säger return new Player(blah blah), men jag tyckte det blev lite
- *   ointuitivt, så jag struntade i det tills vidare...
+ *   *************TOMS STRUL TISDAG EFTERMIDDAG/KVÃ„LL********
+ * - Fixat olika ikoner fÃ¶r spelare 1 och 2. TyvÃ¤rr fÃ¥r vi inte skicka
+ *   en int till konstruktorn, och sedan vÃ¤lja bilder att skicka
+ *   till superkonstruktorn efter den. Konstruktoranropet mÃ¥ste ju
+ *   komma fÃ¶rst! Tredje gÃ¥ngen vi gÃ¶r i denna fÃ¤llla.... Ett alternativ
+ *   Ã¤r att gÃ¶ra en mellannivÃ¥, typ public GamePlayer createPlayer(int num)
+ *   som sÃ¤ger return new Player(blah blah), men jag tyckte det blev lite
+ *   ointuitivt, sÃ¥ jag struntade i det tills vidare...
  * 
- * - Fixat insets på fönsterstorleken. Att det inte funkade förut berodde
- *   nog på att vi inte hade kört pack().
+ * - Fixat insets pÃ¥ fÃ¶nsterstorleken. Att det inte funkade fÃ¶rut berodde
+ *   nog pÃ¥ att vi inte hade kÃ¶rt pack().
  * 
- * - Bytt ordning på knapparna i panelen så att New Game är överst och Quit
+ * - Bytt ordning pÃ¥ knapparna i panelen sÃ¥ att New Game Ã¤r Ã¶verst och Quit
  *   underst...
  * 
- * - Fixat svart bakgrund och vit, centrerad text i poängfälten
+ * - Fixat svart bakgrund och vit, centrerad text i poÃ¤ngfÃ¤lten
  * 
  * - Gjort ett fulhack i changeRocketClearing som kollar om spelaren
- *   skickat upp 2 raketer (jag tycker att man skall vinna just där,
- *   när raketen når taket, och inte när man skjuter upp den). Då visas
- *   en enkel dialogruta. När man klickar OK startas spelet om.
+ *   skickat upp 2 raketer (jag tycker att man skall vinna just dÃ¤r,
+ *   nÃ¤r raketen nÃ¥r taket, och inte nÃ¤r man skjuter upp den). DÃ¥ visas
+ *   en enkel dialogruta. NÃ¤r man klickar OK startas spelet om.
  * 
  * - Kommenterat bort metoden createLocationMatrix2 (den gamla, innan
- *   vi gick över till strängar). Du kan ta bort den om du vill.
+ *   vi gick Ã¶ver till strÃ¤ngar). Du kan ta bort den om du vill.
  * 
- * - Återställt så att alla delar slumpas ut. Jag kommenterade bara bort hård-
- *   kodningen av alla nya raketdelar nära spelare 1. Bra att kunna återställa
+ * - Ã…terstÃ¤llt sÃ¥ att alla delar slumpas ut. Jag kommenterade bara bort hÃ¥rd-
+ *   kodningen av alla nya raketdelar nÃ¥ra spelare 1. Bra att kunna Ã¥terstÃ¤lla
  *   senare.
  * 
- * - Lade in ett spöke. Det går assegt på den här datorn. Inte minst när en
+ * - Lade in ett spÃ¶ke. Det gÃ¥r assegt pÃ¥ den hÃ¤r datorn. Inte minst nÃ¤r en
  *   raket skjuts upp!
  * 
- * - Redigerade att-göra-listan här ovanför. Rensade ut en hel del som redan
- *   är fixat och lade in att vi skall göra en välkomstruta med instruktioner.
+ * - Redigerade att-gÃ¶ra-listan hÃ¤r ovanfÃ¶r. Rensade ut en hel del som redan
+ *   Ã¤r fixat och lade in att vi skall gÃ¶ra en vÃ¤lkomstruta med instruktioner.
  * 
  * 
  * 
@@ -277,183 +277,183 @@
  * 
  * 
  *  
- * Att göra för Tom onsdag-torsdag:
+ * Att gÃ¶ra fÃ¶r Tom onsdag-torsdag:
  * - Rendera grafik (men inte allt)
- * - Byt världen från charmatris till strängarray  --- NEJ! Se nedan!
+ * - Byt vÃ¤rlden frÃ¥n charmatris till strÃ¤ngarray  --- NEJ! Se nedan!
  * - Knappar (New Game, Restart, Quit, About)
  * 
- * Att göra för Jonatan lö-sö
- * - Byt världen från charmatris till strängarray - Jo! se världen! - FIXAT!
+ * Att gÃ¶ra fÃ¶r Jonatan lÃ¶-sÃ¶
+ * - Byt vÃ¤rlden frÃ¥n charmatris till strÃ¤ngarray - Jo! se vÃ¤rlden! - FIXAT!
  * 
  * - Ev. flytta ut "legalmove"-delen ur moveTo i GameActor till legalMove
- *   i GameWorld (ev. returnera int istället, 0=ok, 1=vägg, 2=actor ivägen
+ *   i GameWorld (ev. returnera int istÃ¤llet, 0=ok, 1=vÃ¤gg, 2=actor ivÃ¤gen
  * 
- * - Istället för att ta bort obj från listan av obj i världen kanske deras
- *   location ska sättas till null? Då slipps "removeObjectFromWorld" - FIXAT!
+ * - IstÃ¤llet fÃ¶r att ta bort obj frÃ¥n listan av obj i vÃ¤rlden kanske deras
+ *   location ska sÃ¤ttas till null? DÃ¥ slipps "removeObjectFromWorld" - FIXAT!
  * 
  * - Fler knappar: New Game, About, Restart (Save? Load?) - Delvis
  * 
  * - Tangentbordskommandon Ctrl-Q - Delvis
  * 
- * - Fusk!!! (manipulera legalMove()) (gå utanför labyrinten och sno
+ * - Fusk!!! (manipulera legalMove()) (gÃ¥ utanfÃ¶r labyrinten och sno
  *   den andres del. - Delvis
  * 
- * - Bygga upp raketerna, dvs hända något när man lägger obj i targetrutan.
+ * - Bygga upp raketerna, dvs hÃ¤nda nÃ¥got nÃ¤r man lÃ¤gger obj i targetrutan.
  *   - FIXAT!
  * 
  * 
- * JONATANS FÖRÄNDRINGAR LÖRDAG-SÖNDAG:
- * LÖRDAG:
- * - Började kolla på dammsugaren, kom ingen vart.
+ * JONATANS FÃ–RÃ„NDRINGAR LÃ–RDAG-SÃ¶NDAG:
+ * LÃ–RDAG:
+ * - BÃ¶rjade kolla pÃ¥ dammsugaren, kom ingen vart.
  * 
- * - Tänkte implementera en restartknapp för effektivare testning.
- *   Blev förstås mycket mer komplicerat än förväntat. restart() lades till i
- *   GameAreaLabyrinth, och panelen känner numera till labyrinten (för att
- *   kunna restarta den). Tyvärr görs detta inte helt snyggt, se konstruktorn
- *   för GameWindow som måste använda panel.setLabyrinth(labyrinth) eftersom
- *   labyrintkonstruktorn behöver panelen och panelkonstruktorn behöver
- *   laybrinten. Detta tror jag tyder på att vi har ett stort konceptuellt
- *   tankefel någonstans i upplägget med klasser (eller också så kanske vissa
- *   metoder bara ligger i fel klasser?)... Ctrl-n funkar också
- *   för att restarta.
+ * - TÃ¤nkte implementera en restartknapp fÃ¶r effektivare testning.
+ *   Blev fÃ¶rstÃ¥s mycket mer komplicerat Ã¤n fÃ¶rvÃ¤ntat. restart() lades till i
+ *   GameAreaLabyrinth, och panelen kÃ¤nner numera till labyrinten (fÃ¶r att
+ *   kunna restarta den). TyvÃ¤rr gÃ¶rs detta inte helt snyggt, se konstruktorn
+ *   fÃ¶r GameWindow som mÃ¥ste anvÃ¤nda panel.setLabyrinth(labyrinth) eftersom
+ *   labyrintkonstruktorn behÃ¶ver panelen och panelkonstruktorn behÃ¶ver
+ *   laybrinten. Detta tror jag tyder pÃ¥ att vi har ett stort konceptuellt
+ *   tankefel nÃ¥gonstans i upplÃ¤gget med klasser (eller ocksÃ¥ sÃ¥ kanske vissa
+ *   metoder bara ligger i fel klasser?)... Ctrl-n funkar ocksÃ¥
+ *   fÃ¶r att restarta.
  * 
- * - Paus är implementerat. knapp p stoppar respektive resumar timern i
- *   GameWindow. I denna klass finns en boolean som visar om spelet är
- *   pausat eller ej. Metoderna som har med detta att göra anropar först
- *   getTopLevelAncestor() för att hämta det GameWindow som de ligger i (måste
+ * - Paus Ã¤r implementerat. knapp p stoppar respektive resumar timern i
+ *   GameWindow. I denna klass finns en boolean som visar om spelet Ã¤r
+ *   pausat eller ej. Metoderna som har med detta att gÃ¶ra anropar fÃ¶rst
+ *   getTopLevelAncestor() fÃ¶r att hÃ¤mta det GameWindow som de ligger i (mÃ¥ste
  *   castas)
  * 
- * - Eventuellt borde det i båda dessa lägen (spelet pausat samt restartat)
+ * - Eventuellt borde det i bÃ¥da dessa lÃ¤gen (spelet pausat samt restartat)
  *   komma upp en liten text ("Game Paused, press p to resume" "Game restarted,
- *   starting in 3, 2, 1 seconds"). Fixade även lite font på dessa meddelanden.
+ *   starting in 3, 2, 1 seconds"). Fixade Ã¤ven lite font pÃ¥ dessa meddelanden.
  * 
- * - Ett lurigt fusk är implementerat! När man har pausat kan man styra gubben
- *   när man sedan trycker p igen så "teleporteras" gubben. På så sätt kan man
- *   t.ex. hinna förbi dammsugaren som annars kanske skulle blockera vägen
- *   (vaddå bug som jag inte har en aning om hur man fixar? :)
+ * - Ett lurigt fusk Ã¤r implementerat! NÃ¤r man har pausat kan man styra gubben
+ *   nÃ¤r man sedan trycker p igen sÃ¥ "teleporteras" gubben. PÃ¥ sÃ¥ sÃ¤tt kan man
+ *   t.ex. hinna fÃ¶rbi dammsugaren som annars kanske skulle blockera vÃ¤gen
+ *   (vaddÃ¥ bug som jag inte har en aning om hur man fixar? :)
  * 
- * - Fixade stringWorld som representerar världen med String[] i stället för
+ * - Fixade stringWorld som representerar vÃ¤rlden med String[] i stÃ¤llet fÃ¶r
  *   char[][]. Det blev fortfarande inte helt symmetriskt, men helt ok.
- *   Först körde jag med kommatecken som separator, men det såg inte så snyggt
- *   ut så jag fixade till det med space som separator. Jag sparade dock koden
- *   till kommaseparationen som ser snyggare ut så får vi besluta vilket som
- *   är bäst. I och med detta fixade jag också en lite större värld.
+ *   FÃ¶rst kÃ¶rde jag med kommatecken som separator, men det sÃ¥g inte sÃ¥ snyggt
+ *   ut sÃ¥ jag fixade till det med space som separator. Jag sparade dock koden
+ *   till kommaseparationen som ser snyggare ut sÃ¥ fÃ¥r vi besluta vilket som
+ *   Ã¤r bÃ¤st. I och med detta fixade jag ocksÃ¥ en lite stÃ¶rre vÃ¤rld.
  * 
  * - La till setResizable(false) i GameWindow. Detta gjorde ramarna till
- *   fönstret något tunnare så jag minskade fönstrets storlek med 2x2 px 
- *   (vi borde kolla upp det där med "getBorderThickness").
+ *   fÃ¶nstret nÃ¥got tunnare sÃ¥ jag minskade fÃ¶nstrets storlek med 2x2 px 
+ *   (vi borde kolla upp det dÃ¤r med "getBorderThickness").
  * 
- * - Satte tillbaks den gamla composite i SuperSucker, annars används alpha-
- *   blinkningen på allt som man ritar själv (t.ex. paus-texten).
+ * - Satte tillbaks den gamla composite i SuperSucker, annars anvÃ¤nds alpha-
+ *   blinkningen pÃ¥ allt som man ritar sjÃ¤lv (t.ex. paus-texten).
  * 
- * - Behandlingen av upplockande och nedsättande av objekt förbättrades.
- *   Nu används inte längre metoderna addObject och removeObject i GameWorld.
- *   Istället sätts objektens location till null och vid utritningen av dessa
- *   kontrolleras om location är null, om så är fallet ritas objektet ej ut.
+ * - Behandlingen av upplockande och nedsÃ¤ttande av objekt fÃ¶rbÃ¤ttrades.
+ *   Nu anvÃ¤nds inte lÃ¤ngre metoderna addObject och removeObject i GameWorld.
+ *   IstÃ¤llet sÃ¤tts objektens location till null och vid utritningen av dessa
+ *   kontrolleras om location Ã¤r null, om sÃ¥ Ã¤r fallet ritas objektet ej ut.
  * 
- * - Ändrat upplägget i panelen för att kunna lägga till RocketModules allt
- *   eftersom. Jag införde GameAreaWorkshop som läggs till längst ned i
- *   GamePanel. Denna innehåller i sin tur tre JLabels. Alla JLabels läggs 
- *   till från början, men de innehåller inget. När sedan en viss modul läggs
- *   ned på targetLocation så kontrolleras om det är rätt modul och om så är
- *   fallet så sätts en ny ikon till den aktuella JLabeln (setIcon()).
+ * - Ã„ndrat upplÃ¤gget i panelen fÃ¶r att kunna lÃ¤gga till RocketModules allt
+ *   eftersom. Jag infÃ¶rde GameAreaWorkshop som lÃ¤ggs till lÃ¤ngst ned i
+ *   GamePanel. Denna innehÃ¥ller i sin tur tre JLabels. Alla JLabels lÃ¤ggs 
+ *   till frÃ¥n bÃ¶rjan, men de innehÃ¥ller inget. NÃ¤r sedan en viss modul lÃ¤ggs
+ *   ned pÃ¥ targetLocation sÃ¥ kontrolleras om det Ã¤r rÃ¤tt modul och om sÃ¥ Ã¤r
+ *   fallet sÃ¥ sÃ¤tts en ny ikon till den aktuella JLabeln (setIcon()).
  *
  * 
- * SÖNDAG:
- * - releaseObject i Player har fått ett rejält lyft. Nu kollar den om det
- *   är en RocketModule som släpps i targetLocation, och om så är fallet så
- *   läggs den till i retreivedObjects (som jag har flyttat från GamePanel till
- *   Player eftersom det ju är Playern som har samlat ihop dem). Efter mycket
+ * SÃ–NDAG:
+ * - releaseObject i Player har fÃ¥tt ett rejÃ¤lt lyft. Nu kollar den om det
+ *   Ã¤r en RocketModule som slÃ¤pps i targetLocation, och om sÃ¥ Ã¤r fallet sÃ¥
+ *   lÃ¤ggs den till i retreivedObjects (som jag har flyttat frÃ¥n GamePanel till
+ *   Player eftersom det ju Ã¤r Playern som har samlat ihop dem). Efter mycket
  *   om och men funkar detta som det ska (hoppas jag). Problemet med detta
- *   var när man körde restart(), då uppdaterades inte workshopen, men nu bör
- *   allt vara fixat. (ca 3 tim.)  Varje player har också en egen workshop
- *   vilket bör fungera mycket smidigt när vi inför 2 player.
+ *   var nÃ¤r man kÃ¶rde restart(), dÃ¥ uppdaterades inte workshopen, men nu bÃ¶r
+ *   allt vara fixat. (ca 3 tim.)  Varje player har ocksÃ¥ en egen workshop
+ *   vilket bÃ¶r fungera mycket smidigt nÃ¤r vi infÃ¶r 2 player.
  * 
- * - Fixat aboutWindow som öppnas när man klicka på en knapp. Spelet pausas,
- *   och resumas när about-fönstret stängs.
+ * - Fixat aboutWindow som Ã¶ppnas nÃ¤r man klickar pÃ¥ en knapp. Spelet pausas,
+ *   och resumas nÃ¤r about-fÃ¶nstret stÃ¤ngs.
  * 
  * 
- * TOMS FÖRÄNDRINGAR ONSDAG-TORSDAG:
+ * TOMS FÃ–RÃ„NDRINGAR ONSDAG-TORSDAG:
  * ONSDAG:
- * - Tagit bort koden för att flytta spelarna från GameWorld till respektive
- *   spelare. i GameWorld anropas metoden move() på både waiter och gubbe.
- *   Dessa gör vad de ska och anropar sedan den generella metoden
- *   moveGameActor() som ligger i GameActor, där själva flyttandet äger rum.
+ * - Tagit bort koden fÃ¶r att flytta spelarna frÃ¥n GameWorld till respektive
+ *   spelare. i GameWorld anropas metoden move() pÃ¥ bÃ¥de waiter och gubbe.
+ *   Dessa gÃ¶r vad de ska och anropar sedan den generella metoden
+ *   moveGameActor() som ligger i GameActor, dÃ¤r sjÃ¤lva flyttandet Ã¤ger rum.
  * 
- * - Därmed också lagt in det där med att spöket bara skall flyttas var n:te
- *   tick i klassen Waiters tick()-metod (i stället för att som i mitt tidigare
- *   fulhack ha även den koden i världen).
+ * - DÃ¤rmed ocksÃ¥ lagt in det dÃ¤r med att spÃ¶ket bara skall flyttas var n:te
+ *   tick i klassen Waiters tick()-metod (i stÃ¤llet fÃ¶r att som i mitt tidigare
+ *   fulhack ha Ã¤ven den koden i vÃ¤rlden).
  * 
- * - Jag har INTE bytt representation på världen från en char[][] till en
- *   String[]. Detta efter som den visuella representationen blir ÄNNU mer miss-
- *   ledande då. Ett tecken (med ravavstånd) är typ 2-3 ggr så högt som det är
- *   brett. Vitsen med att ändå byta skulle vara att det är lite enklare att
- *   snabbt redigera världen om man slipper byta tecken för tecken utan kan
- *   redigera lite större sjok åt gången. Vi kan diskutera detta.
+ * - Jag har INTE bytt representation pÃ¥ vÃ¤rlden frÃ¥n en char[][] till en
+ *   String[]. Detta efter som den visuella representationen blir Ã„NNU mer miss-
+ *   ledande dÃ¥. Ett tecken (med ravavstÃ¥nd) Ã¤r typ 2-3 ggr sÃ¥ hÃ¶gt som det Ã¤r
+ *   brett. Vitsen med att Ã¤ndÃ¥ byta skulle vara att det Ã¤r lite enklare att
+ *   snabbt redigera vÃ¤rlden om man slipper byta tecken fÃ¶r tecken utan kan
+ *   redigera lite stÃ¶rre sjok Ã¥t gÃ¥ngen. Vi kan diskutera detta.
  * 
- * - Av någon anledning var instansvariablerna player, worldActors och
- *   worldObjects inte deklarerade som private. Jag har fixat detta, med två
- *   följdändringar till mainWorld.getPlayer() i stället för mainWorld.player
+ * - Av nÃ¥gon anledning var instansvariablerna player, worldActors och
+ *   worldObjects inte deklarerade som private. Jag har fixat detta, med tvÃ¥
+ *   fÃ¶ljdÃ¤ndringar till mainWorld.getPlayer() i stÃ¤llet fÃ¶r mainWorld.player
  *   i GameAreaLabyrinth.
  * 
- * - I världen har jag lagt till instansvariabeln LinkedList worldFloorTiles,
- *   som innehåller alla korridorsrutor. I kombination med den nya metoden
- *   getRandomFreeLocation() använder jag listan för att slumpa fram start-
- *   positioner för gubbe, waiter och föremål.
+ * - I vÃ¤rlden har jag lagt till instansvariabeln LinkedList worldFloorTiles,
+ *   som innehÃ¥ller alla korridorsrutor. I kombination med den nya metoden
+ *   getRandomFreeLocation() anvÃ¤nder jag listan fÃ¶r att slumpa fram start-
+ *   positioner fÃ¶r gubbe, waiter och fÃ¶remÃ¥l.
  * 
- * - I världen har jag lagt in metoden Object getRandomItem(LinkedList l).
- *   Den används sedan i metoderna getRandomIcon och getRandomFreeLocation
+ * - I vÃ¤rlden har jag lagt in metoden Object getRandomItem(LinkedList l).
+ *   Den anvÃ¤nds sedan i metoderna getRandomIcon och getRandomFreeLocation
  *   (se ovan).
  * 
- * - Jag har tagit bort pickUpObject() från spelarens moveTo()-metod och
- *   i stället skapat metoden pickUpReleaseObject() (döp den gärna till något
- *   bättre) som anropas när man trycker på space. Om man bär på något anropas
+ * - Jag har tagit bort pickUpObject() frÃ¥n spelarens moveTo()-metod och
+ *   i stÃ¤llet skapat metoden pickUpReleaseObject() (dÃ¶p den gÃ¤rna till nÃ¥got
+ *   bÃ¤ttre) som anropas nÃ¤r man trycker pÃ¥ space. Om man bÃ¶r pÃ¥ nÃ¥got anropas
  *   relaseObject, annars pickUpObject.
  * 
- * - Renderat ny grafik, både stora bilder på raketen i olika stadier
+ * - Renderat ny grafik, bÃ¥de stora bilder pÃ¥ raketen i olika stadier
  *   (NozzleOnly.png, NozzleFuselage.png, NozzleFuselageWings.png,
- *   CompleteRocket.png) och små ikoner för utpluttning i labyrinten.
+ *   CompleteRocket.png) och smÃ¥ ikoner fÃ¶r utpluttning i labyrinten.
  * 
  * - Gjort ett utkast till en splash screen (about2.gif)
  * 
  * TORSDAG:
  * - Skapat klasserna RocketFuselage, RocketNoseCone och RocketWings
  * 
- * - Lagt till en GameActor actorOnLocation för varje GameLocation,
+ * - Lagt till en GameActor actorOnLocation fÃ¶r varje GameLocation,
  *   inkl get- och set-metoder.
  * 
- * - I moveTo() kollar jag om actorOnLocation för den nya rutan är
- *   skild från null. Då flyttar vi gubben dit. Annars skickas this (aktuell
+ * - I moveTo() kollar jag om actorOnLocation fÃ¶r den nya rutan Ã¤r
+ *   skild frÃ¥n null. DÃ¥ flyttar vi gubben dit. Annars skickas this (aktuell
  *   GameActor) och actorOnLocation till metoden handleCollision som tar
- *   som argument vilka actors som har stött ihop.
+ *   som argument vilka actors som har stÃ¶tt ihop.
  * 
- * - För tillfället gör handleCollision inget mer än att skriva ut "Pang!".
+ * - FÃ¶r tillfÃ¤llet gÃ¶r handleCollision inget mer Ã¤n att skriva ut "Pang!".
  * 
- * - Har rensat lite i koden för GameActor, Ghost och Player. Det visade
- *   sig att spelaren och spöket flyttades med hjälp av olika metoder
- *   helt i onödan. Jag har gjort så att båda flyttas med hjälp av
+ * - Har rensat lite i koden fr GameActor, Ghost och Player. Det visade
+ *   sig att spelaren och spÃ¶ket flyttades med hjÃ¤lp av olika metoder
+ *   helt i onÃ¶dan. Jag har gjort sÃ¥ att bÃ¥da flyttas med hjÃ¤lp av
  *   samma metod.
  * 
- * - Löste på egen hand problem med hur vi kommer åt den statiska mainWorld:
- *   I stället för:
+ * - LÃ¤ste pÃ¥ egen hand problem med hur vi kommer Ã¥t den statiska mainWorld:
+ *   I stÃ¤llet fÃ¶r:
  *   newLocation = getLocation().getMainWorld().getNewLocation(this);
- *   ...skriver vi så klart:
+ *   ...skriver vi sÃ¥ klart:
  *   newLocation = GameLocation.getMainWorld().getNewLocation(this);
- *   Jag har inte inte ändrat i GameActor än, så kan du se hur det funkar.
+ *   Jag har inte inte Ã¤ndrat i GameActor Ã¤n, sÃ¥ kan du se hur det funkar.
  * 
- * - Lagt till en GameLocation targetLocation för varje Player. Den sätts
- *   initialt till den ruta där spelaren börjar. Den fås naturligtvis
+ * - Lagt till en GameLocation targetLocation fÃ¶r varje Player. Den sÃ¤tts
+ *   initialt till den ruta dÃ¤r spelaren bÃ¶rjar. Den fÃ¥s naturligtvis
  *   genom metoden getTargetLocation som returnerar en GameLocation.
  * 
- * - Därmed också gjort att om char-matrisen innehåller t så ritas en särskild
+ * - DÃ¤rmed ocksÃ¥ gjort att om char-matrisen innehÃ¥ller t sÃ¥ ritas en sÃ¤rskild
  *   Floor-ruta ut (med mario.gif tills vidare).
  * 
  * - Lagt till en fungerande quit-knapp. Detta ledde till strul med focus.
- *   När knappen läggs till får den automatiskt focus.
- *   labyrinth.transferFocus() hjälpte inte heller eftersom transferFocus()
- *   INTE, som man skulle kunna tro av Mickes kod, sätter focus på den som
- *   tar emot meddelandet. I stället skickar den focus vidare till nästa
- *   element som är focusable. Metoden man skall anropa är requestFocus()!
+ *   NÃ¤r knappen lÃ¤ggs till fÃ¶r den automatiskt focus.
+ *   labyrinth.transferFocus() hjÃ¤lpte inte heller eftersom transferFocus()
+ *   INTE, som man skulle kunna tro av Mickes kod, sÃ¤tter focus pÃ¥ den som
+ *   tar emot meddelandet. I stÃ¤llet skickar den focus vidare till nÃ¤sta
+ *   element som Ã¤r focusable. Metoden man skall anropa Ã¤r requestFocus()!
  * 
  * 
  * 
@@ -463,25 +463,25 @@
  * 
  * TOMS DAMMSUGARSTRUL:
  * 
- * - Jag disablade båda spökena tills vidare...
- * - Likaså har jag hårdkodat in en hög hastighet (moveVelocity)
- *   hos sugaren för att det skall gå snabbare att testköra...
+ * - Jag disablade bÃ¥da spÃ¶kena tills vidare...
+ * - LikasÃ¥ har jag hÃ¥rdkodat in en hÃ¶g hastighet (moveVelocity)
+ *   hos sugaren fÃ¶r att det skall gÃ¥ snabbare att testkÃ¶ra...
  * 
- * - Vi hade tänkt fel när vi räknade ut Direction, och räknade bakvänt. Vi
- *   sade om att location låg till vänster om newLocation skulle vi gå
- *   åt vänster. I stället skall vi så klart gå åt höger! Jag har rättat detta
+ * - Vi hade tÃ¤nkt fel nÃ¤r vi rÃ¤knade ut Direction, och rÃ¤knade bakvÃ¤nt. Vi
+ *   sade om att location lÃ¥g till vÃ¤nster om newLocation skulle vi gÃ¥
+ *   Ã¥t vÃ¤nster. I stÃ¤llet skall vi sÃ¥ klart gÃ¥ Ã¥t hÃ¶ger! Jag har rÃ¤ttat detta
  *   i getNewDirection(GameLocation l).
  * 
- * - Vårt andra tankefel var att vi när vi skulle börja linda upp
- *   travelledPath igen bara poppade den. Problemet är att det första
- *   som händer när vi går till en ny rutan är att den läggs till
- *   travelledPath. När vi poppar den får vi alltså bara tillbaks samma
- *   ruta som vi står på och SuperSucker fastnar. Nu har jag kört en extra
- *   pop() i getNextDirection() innan vi returnerar något.
+ * - VÃ¥rt andra tankefel var att vi nÃ¤r vi skulle bÃ¶rja linda upp
+ *   travelledPath igen bara poppade den. Problemet Ã¤r att det fÃ¶rsta
+ *   som hÃ¤nder nÃ¤r vi gÃ¥r till en ny ruta Ã¤r att den lÃ¤ggs till
+ *   travelledPath. NÃ¤r vi poppar den fÃ¶r vi alltsÃ¥ bara tillbaks samma
+ *   ruta som vi stÃ¥r pÃ¥ och SuperSucker fastnar. Nu har jag kÃ¶rt en extra
+ *   pop() i getNextDirection() innan vi returnerar nÃ¥got.
  * 
- * - Nu funkar sugaren halv-OK, men den kraschar ibland så helt bra är den inte.
- *   Jag tror att det beror på mitt extra stack-poppande. Kanske inträffar
- *   kraschen när den kommer till slutet av sin upplindning av travelledPath?
+ * - Nu funkar sugaren halv-OK, men den kraschar ibland sÃ¥ helt bra Ã¤r den inte.
+ *   Jag tror att det beror pÃ¥ mitt extra stack-poppande. Kanske intrÃ¤ffar
+ *   kraschen nÃ¤r den kommer till slutet av sin upplindning av travelledPath?
  *   
  * 
  */
