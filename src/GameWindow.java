@@ -16,6 +16,8 @@ import java.io.*;
  */
 public class GameWindow extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private GameArea      labyrinth;
 	private GamePanel     panel1;
 	private GamePanel     panel2;
@@ -28,8 +30,8 @@ public class GameWindow extends JFrame {
 	private FontMetrics   messageMetrics;
 	private HighScoreList highScore;
 	
-	// Dessa behöver egentligen inte initieras här eftersom loadSettings(true)
-	// körs i början
+	// Dessa behï¿½ver egentligen inte initieras hï¿½r eftersom loadSettings(true)
+	// kï¿½rs i bï¿½rjan
 	public static Color FOREGROUND_COLOR = new Color(120,  50, 150);
 	public static Color BACKGROUND_COLOR = new Color(140, 124, 194);
 	public static Color BUTTON_COLOR = new Color(160, 150, 210);
@@ -73,7 +75,7 @@ public class GameWindow extends JFrame {
 		setSize((GameLocation.getSideLength()
 				* labyrinth.getWorld().getWidth())
 				+ panel1.getWidth() * 2
-				- 2 // Kompensation för mystisk breddökning...
+				- 2 // Kompensation fï¿½r mystisk breddï¿½kning...
 				+ insets.left + insets.right,
 				(GameLocation.getSideLength()
 						* labyrinth.getWorld().getHeight())
