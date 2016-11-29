@@ -45,6 +45,10 @@ public class GameWindow extends JFrame {
 	 * Creates a new GameWindow.
 	 */
 	public GameWindow() {
+		
+	}
+	
+	public void setupAndDisplay() {
 			
 		loadSettings(true);
 		
@@ -307,6 +311,7 @@ public class GameWindow extends JFrame {
 	public void newInstructionsWindow() {
 		pauseGame();
 		InstructionsWindow w =	new InstructionsWindow(this);
+		w.setupAndDisplay();
 	}
 	
 	/**
@@ -315,6 +320,7 @@ public class GameWindow extends JFrame {
 	public void newAboutWindow() {
 		pauseGame();
 		AboutWindow w =	new AboutWindow(this);
+		w.setupAndDisplay();
 	}
 	
 	/**
@@ -325,8 +331,8 @@ public class GameWindow extends JFrame {
 	 */
 	public void newHighScoreWindow(int option) {
 		pauseGame();
-		HighScoreWindow w =
-			new HighScoreWindow(this, option);
+		HighScoreWindow w =	new HighScoreWindow(this, option);
+		w.setupAndDisplay();
 	}
 	
 	/**
@@ -337,8 +343,8 @@ public class GameWindow extends JFrame {
 	 */
 	public void newSettingsWindow(int option) {
 		pauseGame();
-		SettingsWindow w =
-			new SettingsWindow(this, option);
+		SettingsWindow w = new SettingsWindow(this, option);
+		w.setupAndDisplay();
 	}
 	
 	public void loadSettings(boolean defaultSettings) {

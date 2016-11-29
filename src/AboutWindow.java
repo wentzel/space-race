@@ -18,10 +18,11 @@ public class AboutWindow extends JFrame {
 	 * @param w Game Window which will be paused and
 	 * over which the About Window will be centered 
 	 */
-	public AboutWindow(GameWindow w) {
-		
+	public AboutWindow(GameWindow w) {	
 		mainWindow = w;
-	
+	}
+
+	public void setupAndDisplay() {
 		// Add the image to the window
 		ImageIcon icon = new ImageIcon("img/About.gif");		
 		JLabel aboutPicture = new JLabel(icon);
@@ -45,12 +46,13 @@ public class AboutWindow extends JFrame {
 		setTitle("About SpaceRace");		
 		setSize(aboutWindowWidth, aboutWindowHeight);
 		setResizable(false);
-//		setUndecorated(true);
+//				setUndecorated(true);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		addWindowListener(wl);		
 	}
-
+	
+	
 	private WindowListener wl =	 new WindowAdapter() {
 		public void windowClosed(WindowEvent e) {
 			mainWindow.resumeGame();

@@ -492,5 +492,6 @@ public class SpaceRace {
 	 */
 	public static void main(String[] args) {
 		GameWindow mainWindow = new GameWindow();
+		mainWindow.setupAndDisplay();
 	}
 }

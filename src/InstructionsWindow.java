@@ -21,9 +21,10 @@ public class InstructionsWindow extends JFrame {
 	 * over which the Instructions Window will be centered 
 	 */
 	public InstructionsWindow(GameWindow w) {
-		
 		mainWindow = w;
+	}
 	
+	public void setupAndDisplay() {
 		// Add the image to the window
 		ImageIcon icon = new ImageIcon("img/Instructions.png");		
 		JLabel aboutPicture = new JLabel(icon);
@@ -48,7 +49,7 @@ public class InstructionsWindow extends JFrame {
 		setTitle("SpaceRace Instructions");		
 		setSize(instrWindowWidth, instrWindowHeight);
 		setResizable(false);
-//		setUndecorated(true);
+//				setUndecorated(true);
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		addWindowListener(wl);

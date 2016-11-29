@@ -30,8 +30,41 @@ public class HighScoreWindow extends JFrame {
 	 */
 	public HighScoreWindow(GameWindow w) {
 		mainWindow = w;
+	}
+	
+	private WindowListener wl = new WindowAdapter() {
+		public void windowClosed(WindowEvent e) {
+			if (gameOver == true) {
+				mainWindow.showGameAlternatives();
+			}
+			else {
+				mainWindow.resumeGame();
+				mainWindow.getGameArea().requestFocus();
+			}
+		}
+	};
+	
+	/**
+	 * Creates a new High Score Window and displays (or not) the game
+	 * alternatives on close
+	 * 
+	 * @param w Game Window which will be paused and
+	 * over which the Instructions Window will be centered 
+	 * @param option 0 if game alternatives is to be shown, otherwise 1
+	 */
+	public HighScoreWindow(GameWindow w, int option) {
+		this(w);
+		if (option == 0) {
+			gameOver = true;
+		}
+		else {
+			gameOver = false;
+		}
+	}
+	
+	public void setupAndDisplay() {
 		highScoreList = mainWindow.getHighScore();
-			
+		
 		Container c = getContentPane();
 		c.setLayout(new GridLayout(11, 3, 10, 5));
 		c.setBackground(GameWindow.BACKGROUND_COLOR);
@@ -95,36 +128,6 @@ public class HighScoreWindow extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		addWindowListener(wl);
-	}
-	
-	private WindowListener wl = new WindowAdapter() {
-		public void windowClosed(WindowEvent e) {
-			if (gameOver == true) {
-				mainWindow.showGameAlternatives();
-			}
-			else {
-				mainWindow.resumeGame();
-				mainWindow.getGameArea().requestFocus();
-			}
-		}
-	};
-	
-	/**
-	 * Creates a new High Score Window and displays (or not) the game
-	 * alternatives on close
-	 * 
-	 * @param w Game Window which will be paused and
-	 * over which the Instructions Window will be centered 
-	 * @param option 0 if game alternatives is to be shown, otherwise 1
-	 */
-	public HighScoreWindow(GameWindow w, int option) {
-		this(w);
-		if (option == 0) {
-			gameOver = true;
-		}
-		else {
-			gameOver = false;
-		}
 	}
 }
 

@@ -88,8 +88,27 @@ public class SettingsWindow extends JFrame
 	 */
 	public SettingsWindow(GameWindow w) {
 		mainWindow = w;
-
-		
+	}
+	
+	/**
+	 * Creates a new High Score Window and displays (or not) the game
+	 * alternatives on close
+	 * 
+	 * @param w Game Window which will be paused and
+	 * over which the Instructions Window will be centered 
+	 * @param option 0 if game alternatives is to be shown, otherwise 1
+	 */
+	public SettingsWindow(GameWindow w, int option) {
+		this(w);
+		if (option == 0) {
+			gameOver = true;
+		}
+		else {
+			gameOver = false;
+		}
+	}
+	
+	public void setupAndDisplay() {
 		Container c = getContentPane();
 //		GridBagLayout m = new GridBagLayout();
 //		c.setLayout(m);
@@ -523,24 +542,6 @@ public class SettingsWindow extends JFrame
 			}
 		}
 	};
-	
-	/**
-	 * Creates a new High Score Window and displays (or not) the game
-	 * alternatives on close
-	 * 
-	 * @param w Game Window which will be paused and
-	 * over which the Instructions Window will be centered 
-	 * @param option 0 if game alternatives is to be shown, otherwise 1
-	 */
-	public SettingsWindow(GameWindow w, int option) {
-		this(w);
-		if (option == 0) {
-			gameOver = true;
-		}
-		else {
-			gameOver = false;
-		}
-	}
 	
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
