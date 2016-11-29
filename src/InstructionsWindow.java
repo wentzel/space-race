@@ -10,6 +10,8 @@ import javax.swing.*;
  */
 public class InstructionsWindow extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+	
 	GameWindow mainWindow;
 	
 	/**

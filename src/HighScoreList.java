@@ -7,8 +7,10 @@ import java.util.*;
  * The class for the High Score List.
  *
  */
-public class HighScoreList extends LinkedList implements Serializable {
+public class HighScoreList extends LinkedList<HighScoreEntry> implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Creates a High Score List with default high score entries.
 	 */

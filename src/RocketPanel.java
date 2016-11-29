@@ -5,10 +5,12 @@ import javax.swing.*;
 /**
  * @author Jonatan
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * TODO
+ * - Make setters and getters for the properties of this object. Use them!
  */
 public class RocketPanel extends JPanel{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private RocketModule noseCone;
 	private RocketModule fuselage;
@@ -40,15 +42,15 @@ public class RocketPanel extends JPanel{
 		setBackground(GameWindow.BACKGROUND_COLOR);
 		
 		ImageIcon rocketModulePicture = new ImageIcon("img/roc/NoseCone.png");
-		noseConeHeight = rocketModulePicture.getIconHeight();
+		setNoseConeHeight(rocketModulePicture.getIconHeight());
 		rocketModulePicture = new ImageIcon("img/roc/Fuselage.png");
-		fuselageHeight = rocketModulePicture.getIconHeight();
+		setFuselageHeight(rocketModulePicture.getIconHeight());
 		rocketModulePicture = new ImageIcon("img/roc/EngineOld.png");
-		engineHeight = rocketModulePicture.getIconHeight();
+		setEngineHeight(rocketModulePicture.getIconHeight());
 		rocketModulePicture = new ImageIcon("img/roc/Nozzle.png");
-		nozzleHeight = rocketModulePicture.getIconHeight();
+		setNozzleHeight(rocketModulePicture.getIconHeight());
 		rocketModulePicture = new ImageIcon("img/roc/Flames.png");
-		flamesHeight = rocketModulePicture.getIconHeight();
+		setFlamesHeight(rocketModulePicture.getIconHeight());
 		
 		flamesImage = new ImageIcon("img/roc/Flames.png");
 
@@ -218,5 +220,47 @@ public class RocketPanel extends JPanel{
 	public void setLaunchFinished(boolean b) {
 		launchFinished = b;
 	}
+
+	public int getNoseConeHeight() {
+		return noseConeHeight;
+	}
+
+	public void setNoseConeHeight(int noseConeHeight) {
+		this.noseConeHeight = noseConeHeight;
+	}
+
+	public int getFuselageHeight() {
+		return fuselageHeight;
+	}
+
+	public void setFuselageHeight(int fuselageHeight) {
+		this.fuselageHeight = fuselageHeight;
+	}
+
+	public int getEngineHeight() {
+		return engineHeight;
+	}
+
+	public void setEngineHeight(int engineHeight) {
+		this.engineHeight = engineHeight;
+	}
+
+	public int getNozzleHeight() {
+		return nozzleHeight;
+	}
+
+	public void setNozzleHeight(int nozzleHeight) {
+		this.nozzleHeight = nozzleHeight;
+	}
+
+	public int getFlamesHeight() {
+		return flamesHeight;
+	}
+
+	public void setFlamesHeight(int flamesHeight) {
+		this.flamesHeight = flamesHeight;
+	}
+	
+	
 	
 }

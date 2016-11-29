@@ -9,6 +9,8 @@ import javax.swing.*;
  */
 public class AboutWindow extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+	
 	GameWindow mainWindow;
 	
 	/**

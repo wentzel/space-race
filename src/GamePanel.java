@@ -11,6 +11,8 @@ import javax.swing.border.*;
  */
 public class GamePanel extends JPanel {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private RocketPanel  rocketPanel;
 	private JLabel		 carriedObjectLabel;
 	private JPanel       statusPanel;

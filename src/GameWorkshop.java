@@ -11,6 +11,8 @@ import javax.swing.*;
  */
 public class GameWorkshop extends JComponent {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private        JPanel  rocketPanel;
 	private        JLabel  noseCone;
 	private        JLabel  fuselage;
@@ -124,7 +126,7 @@ public class GameWorkshop extends JComponent {
 	}
 	
 	public void animateRocket() {
-		addFlames(); // dumt att detta görs varje tick
+		addFlames(); // dumt att detta gï¿½rs varje tick
 		rocketPanel.setLocation(getNewRocketLocation());
 		if (rocketPanel.getLocation().y < (0 - totalRocketHeight)) {
 			launchFinished = true;
@@ -138,7 +140,7 @@ public class GameWorkshop extends JComponent {
 	    xposX += 1;
 	    
 	    
-	    // Någonstans här måste höjden för Flames.png dras av
+	    // Nï¿½gonstans hï¿½r mï¿½ste hï¿½jden fï¿½r Flames.png dras av
 	    // - new ImageIcon("img/roc/Flames.png").getIconHeight()
 	    int ypos = rocketPanel.getLocation().y;
 	    ypos = ypos - (int) (Math.exp(yposX) - Math.exp(1));

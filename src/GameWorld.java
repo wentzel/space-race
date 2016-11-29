@@ -15,9 +15,9 @@ public class GameWorld {
 	private String[]         stringWorld; // String representation of the world
 										  // in order to provide easy editing
 	
-	private LinkedList       worldActors;
-	private LinkedList       worldObjects;
-	private LinkedList       worldFloorTiles; // Used for random placement of
+	private LinkedList<GameActor>       worldActors;
+	private LinkedList<GameObject>       worldObjects;
+	private LinkedList<Floor>       worldFloorTiles; // Used for random placement of
 	               							  // objects and AI actors
 	private Player           player1;
 	private Player           player2;
@@ -80,7 +80,7 @@ public class GameWorld {
 		
 		worldSize = new Dimension(
 				(stringWorld[1].length() + 1), stringWorld.length);
-		worldFloorTiles = new LinkedList();	
+		worldFloorTiles = new LinkedList<Floor>();	
 		worldGrid = createLocationMatrix(stringWorld);
 		
 		// Create and add all players and AI actors
@@ -100,7 +100,7 @@ public class GameWorld {
 							 player2StartingLocation,
 							 panel2);
 		
-		worldActors = new LinkedList();
+		worldActors = new LinkedList<GameActor>();
 		worldActors.add(new SuperSucker(getRandomFreeLocation()));
 		worldActors.add(new Ghost(getRandomFreeLocation()));
 		worldActors.add(new Ghost(getRandomFreeLocation()));
@@ -109,7 +109,7 @@ public class GameWorld {
 		
 		
 		// Create and add all world objects: rocket parts and dust
-		worldObjects = new LinkedList();
+		worldObjects = new LinkedList<GameObject>();
 //		worldObjects.add(new RocketEngine(RocketModule.OLD, getLocation(2, 2)));
 //		worldObjects.add(new RocketNozzle(RocketModule.OLD, getLocation(1, 3)));
 //		worldObjects.add(new RocketFuselage(RocketModule.OLD, getLocation(2, 1)));
@@ -237,7 +237,7 @@ public class GameWorld {
 	 * changeRocketClearing to update the vertical position of the rocket.
 	 */
 	public void tick() {
-		Iterator i =  worldActors.iterator();
+		Iterator<GameActor> i =  worldActors.iterator();
 		while(i.hasNext()) {
 			((GameActor) i.next()).tick();
 		}
@@ -292,7 +292,7 @@ public class GameWorld {
 	 * Returns all actors in the world.
 	 * @return all actors in the world
 	 */
-	public LinkedList getWorldActors() {
+	public LinkedList<GameActor> getWorldActors() {
 		return worldActors;
 	}
 	
@@ -300,7 +300,7 @@ public class GameWorld {
 	 * Returns all objects in the world.
 	 * @return all objects in the world
 	 */
-	public LinkedList getWorldObjects() {
+	public LinkedList<GameObject> getWorldObjects() {
 		return worldObjects;
 	}
 	
@@ -319,7 +319,7 @@ public class GameWorld {
 	 * @param l the list to process
 	 * @return a random list item
 	 */
-	public Object getRandomItem(LinkedList l) {
+	public Object getRandomItem(LinkedList<?> l) {
 		return l.get((int) (Math.random() * l.size()));
 	}
 	

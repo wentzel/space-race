@@ -13,8 +13,10 @@ import javax.swing.border.*;
 public class SettingsWindow extends JFrame 
 			implements ActionListener, ChangeListener {
 	
-	private        JComboBox  iconToChange;
-	private        JLabel     iconToChangeText;
+	private static final long serialVersionUID = 1L;
+	
+//	private        JComboBox  iconToChange;
+//	private        JLabel     iconToChangeText;
 
 	private        JPanel     buttonPanel;
 	private        JPanel     iconPanel;
@@ -490,8 +492,8 @@ public class SettingsWindow extends JFrame
 		Dimension mainWindowSize = mainWindow.getSize();
 		int SettingsWindowWidth = getSize().width;
 		int SettingsWindowHeight = getSize().height;
-		Toolkit t = Toolkit.getDefaultToolkit();
-		Insets insets = getInsets();
+//		Toolkit t = Toolkit.getDefaultToolkit();
+//		Insets insets = getInsets();
 		Point mainWindowLocation = mainWindow.getLocation();
 		int x = mainWindowLocation.x
 				+ (mainWindowSize.width / 2)  - (SettingsWindowWidth / 2);

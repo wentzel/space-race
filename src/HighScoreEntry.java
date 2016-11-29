@@ -6,7 +6,9 @@ import java.io.*;
  * The class for the High Score Entries.
  *
  */
-public class HighScoreEntry implements Comparable, Serializable {
+public class HighScoreEntry implements Comparable<HighScoreEntry>, Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String name;
 	private int    score;
@@ -28,8 +30,8 @@ public class HighScoreEntry implements Comparable, Serializable {
 	 * @param o high score entry to compare with
 	 * @return -1 if current score is less than the compared, 1 otherwise
 	 */
-	public int compareTo(Object o) {
-		if (score < ((HighScoreEntry)o).getScore()) {
+	public int compareTo(HighScoreEntry e) {
+		if (score < e.getScore()) {
 			return -1;
 		}
 		else {

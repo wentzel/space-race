@@ -17,9 +17,9 @@ public class SuperSucker extends GameActor {
 	
 	private int        numTicks;
 	private int        moveVelocity;
-	private HashSet    visitedLocations;
-	private Stack      locationsToVisit;
-	private Stack      travelledPath;
+	private HashSet<GameLocation>    visitedLocations;
+	private Stack<GameLocation>      locationsToVisit;
+	private Stack<GameLocation>      travelledPath;
 	
 	/**
 	 * Creates a SuperSucker2005+.
@@ -29,9 +29,9 @@ public class SuperSucker extends GameActor {
 		super(new ImageIcon("img/act/SuperSucker.gif"), location, true);
 		numTicks           = (int)(Math.random() * 10);
 		moveVelocity       = 2;
-		visitedLocations   = new HashSet();
-		locationsToVisit = new Stack();
-		travelledPath      = new Stack();
+		visitedLocations   = new HashSet<GameLocation>();
+		locationsToVisit = new Stack<GameLocation>();
+		travelledPath      = new Stack<GameLocation>();
 	}
 	
 	/**

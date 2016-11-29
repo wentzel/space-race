@@ -13,7 +13,7 @@ public class Player extends GameActor {
 	private String		 playerName;
 	private int          playerNumber;
 	private GameLocation targetLocation;   // The location of the player's base
-	private LinkedList   retrievedObjects; // The so far collected parts of the
+	private LinkedList<GameObject>   retrievedObjects; // The so far collected parts of the
 										   // space ship
 	private GamePanel    panel;
 	private int          score;
@@ -42,7 +42,7 @@ public class Player extends GameActor {
 		playerNumber = n;
 		playerName = "Player " + playerNumber;
 		targetLocation   = location;
-		retrievedObjects = new LinkedList();
+		retrievedObjects = new LinkedList<GameObject>();
 		panel = p;
 	}
 
@@ -175,7 +175,7 @@ public class Player extends GameActor {
 	 * in the labyrinth.
 	 */
 	public void returnRocketParts() {
-		Iterator i = retrievedObjects.iterator();
+		Iterator<GameObject> i = retrievedObjects.iterator();
 		while (i.hasNext()) {
 			RocketModule mod = ((RocketModule)i.next());
 			GameLocation loc = (getMainWorld().getRandomFreeLocation());
@@ -281,7 +281,7 @@ public class Player extends GameActor {
 	 */
 	public int getRocketScore() {
 		int rocketScore = 0;
-		Iterator i = retrievedObjects.iterator();
+		Iterator<GameObject> i = retrievedObjects.iterator();
 		while (i.hasNext()) {
 			rocketScore += ((RocketModule)i.next()).getModuleScore();
 		}

@@ -12,6 +12,8 @@ import java.util.*;
  */
 public class GameArea extends JComponent {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private GameWorld mainWorld;
 	
 	/**
@@ -44,15 +46,15 @@ public class GameArea extends JComponent {
 		}
 
 		// Draw all objects
-		Iterator i =  mainWorld.getWorldObjects().iterator();
-		while(i.hasNext()) {
-			((GameObject) i.next()).draw(g);
+		Iterator<GameObject> objectIterator =  mainWorld.getWorldObjects().iterator();
+		while(objectIterator.hasNext()) {
+			((GameObject) objectIterator.next()).draw(g);
 		}
 
 		// Draw all actors
-		i =  mainWorld.getWorldActors().iterator();
-		while(i.hasNext()) {
-			((GameActor) i.next()).draw(g);
+		Iterator<GameActor> actorIterator =  mainWorld.getWorldActors().iterator();
+		while(actorIterator.hasNext()) {
+			((GameActor) actorIterator.next()).draw(g);
 		}
 		
 		if (((GameWindow) getTopLevelAncestor()).gamePaused()) {

@@ -10,6 +10,9 @@ import javax.swing.*;
  *
  */
 public class GameButtons extends JPanel implements ActionListener {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private JButton newGameButton;
 	private JButton instructionsButton;
 	private JButton highScoreButton;

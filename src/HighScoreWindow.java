@@ -13,7 +13,10 @@ import java.util.*;
  */
 public class HighScoreWindow extends JFrame {
 	
-	private        LinkedList highScoreList;
+
+	private static final long serialVersionUID = 1L;
+	
+	private        LinkedList<HighScoreEntry> highScoreList;
 	private        GameWindow mainWindow;
 	private        boolean    gameOver;
 	public  static int        GAME_OVER    = 0;
@@ -48,10 +51,10 @@ public class HighScoreWindow extends JFrame {
 		c.add(l2);
 		c.add(l3);
 		
-		Iterator iter = highScoreList.iterator();
+		Iterator<HighScoreEntry> highScoreIterator = highScoreList.iterator();
 		int n = 0;
-		while (iter.hasNext() && n < 10) {
-			HighScoreEntry e = (HighScoreEntry)iter.next();
+		while (highScoreIterator.hasNext() && n < 10) {
+			HighScoreEntry e = highScoreIterator.next();
 			
 			JLabel rank  = new JLabel("" + (n + 1), JLabel.RIGHT);
 			JLabel name  = new JLabel(e.getName(), JLabel.CENTER);
@@ -74,7 +77,7 @@ public class HighScoreWindow extends JFrame {
 		Dimension mainWindowSize = mainWindow.getSize();
 		int highScoreWindowWidth = getSize().width;
 		int highScoreWindowHeight = getSize().height;
-		Toolkit t = Toolkit.getDefaultToolkit();
+//		Toolkit t = Toolkit.getDefaultToolkit();
 		Insets insets = getInsets();
 		Point mainWindowLocation = mainWindow.getLocation();
 		int x = mainWindowLocation.x

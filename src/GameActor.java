@@ -16,7 +16,7 @@ public class GameActor {
 	private        ImageIcon    downImage;
 	private        ImageIcon    leftImage;
 	private        GameLocation location;
-	private        Point   	    coordinates;
+	//private        Point   	    coordinates;
 	private        int 	        xSpeed, ySpeed, v;
 	private        boolean      newMoveInitiated = false;
 	private        boolean      passable;
@@ -48,8 +48,8 @@ public class GameActor {
 		location      = actorLocation;
 		this.passable = passable;
 		location.addActorOnLocation(this);
-		coordinates = new Point(actorLocation.getMatrixPosition().x,
-								actorLocation.getMatrixPosition().y);
+		//coordinates = new Point(actorLocation.getMatrixPosition().x,
+		//						actorLocation.getMatrixPosition().y);
 		v = 1;
 	}
 	
@@ -71,8 +71,8 @@ public class GameActor {
 		leftImage    = actorImage;
 		location     = actorLocation;
 		location.addActorOnLocation(this);
-		coordinates = new Point(actorLocation.getMatrixPosition().x,
-				actorLocation.getMatrixPosition().y);
+		//coordinates = new Point(actorLocation.getMatrixPosition().x,
+		//		actorLocation.getMatrixPosition().y);
 		v = 1;
 		this.passable = passable;
 	}
@@ -106,7 +106,7 @@ public class GameActor {
 			GameLocation newLocation =
 				mainWorld.getNewLocation(this);
 			if (isLegalMove(newLocation)) {
-				LinkedList actorsOnLocation = newLocation.getActorsOnLocation();
+				LinkedList<GameActor> actorsOnLocation = newLocation.getActorsOnLocation();
 				if (!actorsOnLocation.isEmpty()) {
 					for (int i = 0, l = actorsOnLocation.size(); i < l; i++) {
 						GameActor actor = (GameActor) actorsOnLocation.get(i);
@@ -132,7 +132,7 @@ public class GameActor {
 	 */
 	public boolean isLegalMove(GameLocation newLocation) {
 		if (newLocation instanceof Floor) {
-			LinkedList actorsOnLocation = newLocation.getActorsOnLocation();
+			LinkedList<GameActor> actorsOnLocation = newLocation.getActorsOnLocation();
 			if (!actorsOnLocation.isEmpty()) {
 				for (int i = 0, l = actorsOnLocation.size(); i < l; i++) {
 					GameActor actor = (GameActor) actorsOnLocation.get(i);
@@ -167,7 +167,7 @@ public class GameActor {
 	public void moveTo(GameLocation newLocation) {
 		newLocation.addActorOnLocation(this);
 		location.removeActorOnLocation(this);
-		setCoordinates(newLocation.getMatrixPosition());
+		//setCoordinates(newLocation.getMatrixPosition());
 		location = newLocation;
 	}
 	
@@ -366,9 +366,9 @@ public class GameActor {
 	 * Sets the Coordinates of the position of the actor.
 	 * @param p coordinates of the position of the actor
 	 */
-	public void setCoordinates(Point p) {
-		coordinates = p;
-	}
+	//public void setCoordinates(Point p) {
+	//	coordinates = p;
+	//}
 	
 	/**
 	 * Returns the location of the actor.

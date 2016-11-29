@@ -548,7 +548,7 @@ public class GameWindow extends JFrame {
 	 * Returns the high score list.
 	 * @return the high score list
 	 */
-	public LinkedList getHighScore() {
+	public LinkedList<HighScoreEntry> getHighScore() {
 		return highScore;
 	}
 	

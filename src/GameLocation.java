@@ -13,7 +13,7 @@ public class GameLocation {
 	private        Point      matrixPosition = new Point(1, 1);
 
 	private        GameObject objectOnLocation;
-	private        LinkedList actorsOnLocation;
+	private        LinkedList<GameActor> actorsOnLocation;
 	private static int        sideLength = 32;
 
 	/**
@@ -26,7 +26,7 @@ public class GameLocation {
 	public GameLocation(int x, int y) {
 		matrixPosition.x = x;
 		matrixPosition.y = y;
-		actorsOnLocation = new LinkedList();
+		actorsOnLocation = new LinkedList<GameActor>();
 	}
 	
 	public void draw(Graphics g) {
@@ -76,7 +76,7 @@ public class GameLocation {
 	 * Returns all actors on the location.
 	 * @return all actors on the location
 	 */
-	public LinkedList getActorsOnLocation() {
+	public LinkedList<GameActor> getActorsOnLocation() {
 		return actorsOnLocation;
 	}
 	
