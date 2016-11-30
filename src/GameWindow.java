@@ -350,10 +350,10 @@ public class GameWindow extends JFrame {
 	@SuppressWarnings("resource")
 	public void loadSettings(boolean defaultSettings) {
 		try {
-			ObjectInputStream in = new ObjectInputStream (new FileInputStream("set/default.set"));
+			ObjectInputStream in = new ObjectInputStream (new FileInputStream("settings/default.settings"));
 			if (!defaultSettings) {
 				String workingDirectory = System.getProperty("user.dir");
-				JFileChooser fc = new JFileChooser(workingDirectory + "/set");
+				JFileChooser fc = new JFileChooser(workingDirectory + "/settings");
 				int result = fc.showOpenDialog(this);
 				if (result == JFileChooser.APPROVE_OPTION) {
 					String fileName = fc.getSelectedFile().getAbsolutePath();
@@ -401,15 +401,15 @@ public class GameWindow extends JFrame {
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(
 										new FileOutputStream(
-												"set/settings.set"));
+												"settings/settings.settings"));
 			if (defaultSettings) {
 				out = new ObjectOutputStream
 										(new FileOutputStream(
-												"set/default.set"));
+												"set/default.settings"));
 			}
 			else if (!defaultSettings) {
 				String workingDirectory = System.getProperty("user.dir");
-				JFileChooser fc = new JFileChooser(workingDirectory + "/set");
+				JFileChooser fc = new JFileChooser(workingDirectory + "/settings");
 				int result = fc.showSaveDialog(this);
 				if (result == JFileChooser.APPROVE_OPTION) {
 					String fileName = fc.getSelectedFile().getAbsolutePath();
