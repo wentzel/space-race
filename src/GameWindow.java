@@ -445,13 +445,13 @@ public class GameWindow extends JFrame {
 	}
 	
 	/** 
-	 * Loads the High Score List from the file highscore.hsl.
+	 * Loads the High Score List from the file highscore.
 	 */
 	public void loadHighScore() {
 		highScore = null;
 		try {
 			ObjectInputStream in = new ObjectInputStream
-								   (new FileInputStream("highscore.hsl"));
+								   (new FileInputStream("highscore"));
 			highScore = (HighScoreList) in.readObject();
 			in.close();
 		}
