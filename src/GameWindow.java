@@ -350,20 +350,19 @@ public class GameWindow extends JFrame {
 	@SuppressWarnings("resource")
 	public void loadSettings(boolean defaultSettings) {
 		try {
-			ObjectInputStream in = new ObjectInputStream
-						(new FileInputStream("set/default.set"));
+			ObjectInputStream in = new ObjectInputStream (new FileInputStream("set/default.set"));
 			if (!defaultSettings) {
 				String workingDirectory = System.getProperty("user.dir");
 				JFileChooser fc = new JFileChooser(workingDirectory + "/set");
 				int result = fc.showOpenDialog(this);
 				if (result == JFileChooser.APPROVE_OPTION) {
 					String fileName = fc.getSelectedFile().getAbsolutePath();
-					System.out.println(fileName);
+//					System.out.println(fileName);
 					if (fileName.startsWith(workingDirectory)) {
 						fileName = fileName.substring(workingDirectory.length()+1);
 						fileName = fileName.replace('\\','/');
-						System.out.println(workingDirectory.length());
-						System.out.println(fileName);
+//						System.out.println(workingDirectory.length());
+//						System.out.println(fileName);
 					}
 					in = new ObjectInputStream(new FileInputStream(fileName));
 				}
@@ -382,10 +381,10 @@ public class GameWindow extends JFrame {
 			Wall.setIcon(Wall.WALL_TYPE_1, (Icon) in.readObject());
 			Wall.setIcon(Wall.WALL_TYPE_2, (Icon) in.readObject());
 			
-			System.out.println("Closing in-file");
-			System.out.println(FOREGROUND_COLOR.getRed());
-			System.out.println(FOREGROUND_COLOR.getGreen());
-			System.out.println(FOREGROUND_COLOR.getBlue());
+//			System.out.println("Closing in-file, in loadSettings");
+//			System.out.println(FOREGROUND_COLOR.getRed());
+//			System.out.println(FOREGROUND_COLOR.getGreen());
+//			System.out.println(FOREGROUND_COLOR.getBlue());
 			in.close();
 		}
 		catch (ClassNotFoundException ex) {
