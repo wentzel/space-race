@@ -347,6 +347,7 @@ public class GameWindow extends JFrame {
 		w.setupAndDisplay();
 	}
 	
+	@SuppressWarnings("resource")
 	public void loadSettings(boolean defaultSettings) {
 		try {
 			ObjectInputStream in = new ObjectInputStream
@@ -396,6 +397,7 @@ public class GameWindow extends JFrame {
 		}
 	}
 	
+	@SuppressWarnings("resource")
 	public void saveSettings(boolean defaultSettings) {
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(
